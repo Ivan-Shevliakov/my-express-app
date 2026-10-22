@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Главная — {{siteName}}</title>
+    <style>
+        .notification {
+            padding: 12px 16px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            color: #155724;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .notification-close {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            color: #155724;
+            padding: 0 4px;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+        }
+
+        .notification-close:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+   {{#message}}
+        <div class="notification" id="notif">
+            <span>{{ message }}</span>
+            <button type="button" class="notification-close" id="notif-close" aria-label="Закрыть">&times;</button>
+        </div>
+        <script>
+            (function () {
+                const notif = document.getElementById('notif');
+                if (!notif) return;
+
+                let hideTimer = null;
+
+                function hideNotification() {
+                    if (hideTimer) clearTimeout(hideTimer);
+
+                    notif.style.transition = 'opacity 0.3s ease';
+                    notif.style.opacity = '0';
+
+                    setTimeout(() => {
+                        notif.remove();
+
+                        const url = new URL(window.location);
+                        url.searchParams.delete('message');
+                        url.searchParams.delete('type');
+                        window.history.replaceState({}, '', url);
+                    }, 300);
+                }
+
+                hideTimer = setTimeout(hideNotification, 10000);
+
+                document.getElementById('notif-close').addEventListener('click', hideNotification);
+            })();
+        </script>
+    {{/message}}
+
+    <h1>Добро пожаловать, {{ username }}!</h1>
+
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/about">О нас</a> |
+        <a href="/services">Услуги</a> |
+        <a href="/contact">Контакты</a> |
+        <a href="/form">Форма</a> |
+        <a href="/submissions">Данные запросов</a>
+    </nav>
+</body>
+</html>

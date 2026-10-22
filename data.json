@@ -1,0 +1,35 @@
+{
+  "siteName": "мой сайт",
+  "year": 2026,
+  "services": [
+    "Разработка",
+    "Дизайн",
+    "Поддержка"
+  ],
+  "submissions": [
+    {
+      "username": "Ivan",
+      "city": "Красноярск",
+      "subscribe": "yes",
+      "createdAt": "22.10.2026, 15:51"
+    },
+    {
+      "username": "Петя",
+      "city": "Красноярск",
+      "subscribe": "no",
+      "createdAt": "22.10.2026, 15:53"
+    },
+    {
+      "username": "vanya",
+      "city": "Красноярск",
+      "subscribe": "no",
+      "createdAt": "22.10.2026, 16:04"
+    },
+    {
+      "username": "Женя",
+      "city": "Красноярск",
+      "subscribe": "yes",
+      "createdAt": "22.10.2026, 16:06"
+    }
+  ]
+}

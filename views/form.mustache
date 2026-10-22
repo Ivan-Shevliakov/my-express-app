@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Форма — {{siteName}}</title></head>
+<body>
+    <h1>Заполните форму</h1>
+    <form action="/submit" method="POST">
+        <label>Имя:</label>
+        <input type="text" name="username" required><br><br>
+
+        <label>Город:</label>
+        <select name="city">
+            <option value="Красноярск">Красноярск</option>
+            <option value="Москва">Москва</option>
+            <option value="Санкт-Петербург">Санкт-Петербург</option>
+        </select><br><br>
+
+        <label>
+            <label>
+        <input type="checkbox" name="subscribe" value="yes"> Подписаться на рассылку
+        </label>
+        </label><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="/">На главную</a>
+</body>
+</html>
